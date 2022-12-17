@@ -26,12 +26,12 @@ public class SpawnEntities : MonoBehaviour
     {
         if (spawnTime < Time.time)
         {
-            spawn();
+            Spawn();
             spawnTime = Time.time + SPAWN_DELAY;
         }
     }
 
-    private void spawn()
+    private void Spawn()
     {
         for (int i = 0; i < 3; i++)
         {
