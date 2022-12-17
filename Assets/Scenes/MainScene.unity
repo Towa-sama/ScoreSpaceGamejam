@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &5969240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3307929473325415778, guid: 46a4e90c6bc3b814da3193d7b20505ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 3307929471904773256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &32549135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 450008, guid: 9830f561f80768b4f92139c1c15bc835,
@@ -1011,10 +1017,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a347d5e1123d9f841a1901720c95c837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 1977973515}
-  camTransform: {fileID: 1401808872}
-  Offset: {x: 0.05997086, y: 5.903007, z: -6.43185}
-  SmoothTime: 0.3
 --- !u!114 &1401808874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,12 +1290,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 88238821}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1977973515 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3307929473325681992, guid: 46a4e90c6bc3b814da3193d7b20505ed,
-    type: 3}
-  m_PrefabInstance: {fileID: 3307929471904773256}
+--- !u!114 &1977973520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5969240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2ab2ef52ad7534ebbcdbaef2088fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 5
+  sideSpeed: 7
+  animator: {fileID: 0}
+  characterController: {fileID: 0}
 --- !u!4 &1980196760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 450008, guid: 9830f561f80768b4f92139c1c15bc835,
@@ -1373,7 +1385,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1977973513, guid: 46a4e90c6bc3b814da3193d7b20505ed, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 46a4e90c6bc3b814da3193d7b20505ed, type: 3}
 --- !u!1001 &3325672616951242282
 PrefabInstance:
