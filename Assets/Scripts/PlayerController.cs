@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         timer-=Time.deltaTime;
-        if (timer <= 0)//
+        if (timer <= 0)
         {
             transform.Translate(Vector3.forward * (movementSpeed * Time.deltaTime));
             animator.SetBool("isRunning", true);
@@ -38,6 +38,22 @@ public class PlayerController : MonoBehaviour
         if (movement.magnitude >= 0.1f)
         {
             characterController.Move(movement * (sideSpeed * Time.deltaTime));
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                animator.SetBool("isRight", true);
+            }
+            else if (Input.GetKeyUp(KeyCode.D))
+            {
+                animator.SetBool("isRight", false);
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                animator.SetBool("isLeft", true);
+            }
+            else if (Input.GetKeyUp(KeyCode.A))
+            {
+                animator.SetBool("isLeft", false);
+            }
         }
     }
 }
