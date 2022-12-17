@@ -1,22 +1,21 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger : MonoBehaviour
+public class DestroyTile : MonoBehaviour
 {
     private GameObject player;
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         player = GameObject.FindWithTag("Player");
     }
 
-    private void OnTriggerEnter(Collider other)
+    // Update is called once per frame
+    void Update()
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (player.transform.position.z - transform.position.z > 25)
         {
-            player.GetComponent<TileGeneration>().SetUpTiles();
             Destroy(gameObject);
         }
     }

@@ -1352,6 +1352,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Character_Female
       objectReference: {fileID: 0}
+    - target: {fileID: 3307929473325415778, guid: 46a4e90c6bc3b814da3193d7b20505ed,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3307929473325681992, guid: 46a4e90c6bc3b814da3193d7b20505ed,
         type: 3}
       propertyPath: m_RootOrder
@@ -1407,6 +1412,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8787832796778072946, guid: 46a4e90c6bc3b814da3193d7b20505ed,
+        type: 3}
+      propertyPath: tilePrefab
+      value: 
+      objectReference: {fileID: 8080242662510031872, guid: ab8a426a0ac2d5a47a5a28ebf0a77a0d,
+        type: 3}
+    - target: {fileID: 8787832796778072946, guid: 46a4e90c6bc3b814da3193d7b20505ed,
+        type: 3}
+      propertyPath: generationTrigger
+      value: 
+      objectReference: {fileID: 5947614053335724315, guid: 33ea4061d1fa8ca4d952cca7140dd4d4,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 1977973513, guid: 46a4e90c6bc3b814da3193d7b20505ed, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 46a4e90c6bc3b814da3193d7b20505ed, type: 3}
