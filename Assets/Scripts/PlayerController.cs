@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         timer-=Time.deltaTime;
-        if (timer <= 0)
+        if (timer <= 0)//
         {
             transform.Translate(Vector3.forward * (movementSpeed * Time.deltaTime));
             animator.SetBool("isRunning", true);

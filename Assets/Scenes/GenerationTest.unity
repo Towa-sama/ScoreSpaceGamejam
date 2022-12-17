@@ -129,25 +129,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1669499657}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &342309429 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7409346076681970235, guid: 8cb8e065631bef3428d9226c91b4f685,
-    type: 3}
-  m_PrefabInstance: {fileID: 1669499657}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &342309430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342309425}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52efb5ae5fadb74f91a3327d80208c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &342309431
+--- !u!114 &342309436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,13 +138,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 342309425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee15283fadbed694aaa9894544b79d9e, type: 3}
+  m_Script: {fileID: 11500000, guid: faf5e085f66c208478cbde7ba9a74823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generationTrigger: {fileID: 5947614053335724315, guid: 33ea4061d1fa8ca4d952cca7140dd4d4,
-    type: 3}
-  tilePrefab: {fileID: 8080242662510031872, guid: ab8a426a0ac2d5a47a5a28ebf0a77a0d,
-    type: 3}
+  generationTrigger: {fileID: 0}
+  tilePrefab: {fileID: 0}
+--- !u!114 &342309437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342309425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da19abdd072a18f4386a8231e15d153e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &947131783
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,10 +401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c647897ed7751264a8d3ccc6eccc8681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 342309429}
-  camTransform: {fileID: 1503830807}
-  Offset: {x: 0.059970856, y: 5.903007, z: -6.4318504}
-  SmoothTime: 0.3
 --- !u!1001 &1669499657
 PrefabInstance:
   m_ObjectHideFlags: 0
