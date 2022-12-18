@@ -8,8 +8,9 @@ public class EnemyLogic : MonoBehaviour
     private GameObject player;
     private Rigidbody rb;
     private Animator animator;
-
-    private float speed = 6f;
+    private GameObject root;
+    private bool isDead = false;
+    private float speed = 2f;
     private float rotationSpeed = 4f;
 
     // Start is called before the first frame update
@@ -18,15 +19,19 @@ public class EnemyLogic : MonoBehaviour
         animator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
         rb = gameObject.GetComponent<Rigidbody>();
+        root = transform.Find("Root").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(player.transform.position, gameObject.transform.position) < 10)
+        if (!isDead)
         {
-            FollowPlayer();
-            animator.SetBool("isPlayerVisible", true);
+            if (Vector3.Distance(player.transform.position, gameObject.transform.position) < 10)
+            {
+                FollowPlayer();
+                animator.SetBool("isPlayerVisible", true);
+            }
         }
     }
 
@@ -35,14 +40,33 @@ public class EnemyLogic : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         rb.MovePosition(Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime));
-        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("Rock"))
+        if (collision.transform.CompareTag("Rock") || collision.transform.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            isDead = true;
+            animator.enabled = false;
+            root.SetActive(true);
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+            ApplyExplosionToRagdoll(gameObject.transform, 5000f, transform.position - new Vector3(0f, 0f, 5f), 10);
+            Destroy(gameObject, 5f);
+        }
+    }
+
+    private void ApplyExplosionToRagdoll(Transform root, float explosionForce, Vector3 explosionPosition,
+        float explosionRange)
+    {
+        foreach (Transform child in root)
+        {
+            if (child.TryGetComponent<Rigidbody>(out Rigidbody childRigidBody))
+            {
+                childRigidBody.AddExplosionForce(explosionForce, explosionPosition, explosionRange);
+            }
+
+            ApplyExplosionToRagdoll(child, explosionForce, explosionPosition, explosionRange);
         }
     }
 }
