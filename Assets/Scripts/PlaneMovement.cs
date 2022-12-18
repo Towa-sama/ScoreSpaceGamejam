@@ -9,13 +9,13 @@ public class PlaneMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.transform.position = new Vector3(0f, 0.2f, 64f);
+        gameObject.transform.position = new Vector3(0f, 0.05f, 64f);
         player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position = new Vector3(0f, 0.2f, player.transform.position.z + 60f);
+        gameObject.transform.position = new Vector3(0f, 0.05f, player.transform.position.z + 60f);
     }
 }
