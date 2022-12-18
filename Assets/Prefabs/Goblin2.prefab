@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin2
       objectReference: {fileID: 0}
+    - target: {fileID: 112422, guid: 8cd752dc36d412b4bba2efd06775153a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 407186, guid: 8cd752dc36d412b4bba2efd06775153a, type: 3}
       propertyPath: m_RootOrder
       value: 0

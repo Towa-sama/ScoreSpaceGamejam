@@ -50,20 +50,17 @@ public class PlayerController : MonoBehaviour
         
         animator.SetFloat("xInput", velocityX, 0.1f, Time.deltaTime);
         animator.SetFloat("zInput", 1, 0.1f, Time.deltaTime);
+        
+    }
 
-        if (collision == true)
+    IEnumerator LerpSpeed()
+    {
+        while (speed < 8f)
         {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                speed = 8f;
-                collision = false;
-                Debug.Log("speed is normal again");
-                timer = 3f;
-            }
+            speed++;
+            Debug.Log(speed);
+            yield return new WaitForSeconds(0.2f); 
         }
-
-
     }
 
     private void AimTowardMouse()
@@ -80,9 +77,8 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerController_OnObstacleCollided(object sender, EventArgs e)
     {
-        Debug.Log("Reduced speed!");
-        speed /= 2;
-        collision = true;
-
+        StopCoroutine(LerpSpeed());
+        speed = 4f;
+        StartCoroutine(LerpSpeed());
     }
 }

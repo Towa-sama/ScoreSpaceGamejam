@@ -13,8 +13,15 @@ public class Interaction : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Rock"))
         {
+            gameObject.GetComponent<PlayerStats>().GetDamage();
             var particle = Instantiate(rockParticle, collision.gameObject.transform.position, Quaternion.identity);
             Destroy(particle, 3f);
+            Destroy(collision.gameObject);
+            OnObstacleCollided?.Invoke(this, EventArgs.Empty);
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            gameObject.GetComponent<PlayerStats>().GetDamage();
             Destroy(collision.gameObject);
             OnObstacleCollided?.Invoke(this, EventArgs.Empty);
         }
