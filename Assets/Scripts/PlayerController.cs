@@ -10,16 +10,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float sideSpeed = 4f;
     [SerializeField] private LayerMask aimLayerMask;
 
+    Interaction playerController;
     private float horizontal;
     private float vertical;
+    private bool collision;
     
     private Rigidbody rigidBody;
-    private float timer = 2f;
+    private float timer = 3f;
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        playerController = GetComponent<Interaction>();
 
+    }
+
+    private void Start()
+    {
+        playerController.OnObstacleCollided += PlayerController_OnObstacleCollided;
     }
 
     void Update()
@@ -42,6 +50,18 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("xInput", velocityX, 0.1f, Time.deltaTime);
         animator.SetFloat("zInput", 1, 0.1f, Time.deltaTime);
 
+        if (collision == true)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                speed = 8f;
+                collision = false;
+                Debug.Log("speed is normal again");
+                timer = 3f;
+            }
+        }
+
 
     }
 
@@ -55,5 +75,13 @@ public class PlayerController : MonoBehaviour
             direction.Normalize();
             transform.forward = direction;
         }
+    }
+
+    private void PlayerController_OnObstacleCollided(object sender, EventArgs e)
+    {
+        Debug.Log("Reduced speed!");
+        speed /= 2;
+        collision = true;
+
     }
 }

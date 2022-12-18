@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-
+    public event EventHandler OnObstacleCollided;
     [SerializeField] private GameObject rockParticle;
-
+    
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Rock"))
@@ -15,6 +16,7 @@ public class Interaction : MonoBehaviour
             var particle = Instantiate(rockParticle, collision.gameObject.transform.position, Quaternion.identity);
             Destroy(particle, 3f);
             Destroy(collision.gameObject);
+            OnObstacleCollided?.Invoke(this, EventArgs.Empty);
         }
     }
 }
