@@ -141,19 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdae8db9acd7c6842ac6edf985206632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocks:
-  - {fileID: 8865046350605725926, guid: b229748ac135cb54984eff36d89edba0, type: 3}
-  - {fileID: 4849453685301788498, guid: b5eb10bf9c720be49afbf687ba41e2d3, type: 3}
-  - {fileID: 3921686304484942644, guid: cb2a05871270fe64ca7d08842a67c30d, type: 3}
-  - {fileID: 1784583802874420123, guid: aacd7ea9ca00b414487f4400ad800769, type: 3}
-  - {fileID: 1350900527785198152, guid: be3302eff89a2134aa10de1894357ce6, type: 3}
-  enemies:
-  - {fileID: 8293675014864467487, guid: 804dab4651555244187bdc5e980c1b9e, type: 3}
-  - {fileID: 8810570148311381764, guid: 0009f8926bd321d4d8d4dc16d5d0f5e1, type: 3}
-  - {fileID: 3408784856417000706, guid: 7ed34abbb515d9442b202a400422b7d2, type: 3}
-  - {fileID: 301829390358276344, guid: 54df17a60112dc84ba043baf8a7f334c, type: 3}
-  - {fileID: 7622210500879788035, guid: 538ac363f4969ce48bc6259f0969b2f6, type: 3}
-  - {fileID: 8954745783743598393, guid: 979335bacb7d84b4b97c968f9e37b7b4, type: 3}
 --- !u!114 &6965385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,7 +366,7 @@ PrefabInstance:
     - target: {fileID: 3307929473325721524, guid: 46a4e90c6bc3b814da3193d7b20505ed,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.5785476
+      value: -0.57854766
       objectReference: {fileID: 0}
     - target: {fileID: 3307929473325721524, guid: 46a4e90c6bc3b814da3193d7b20505ed,
         type: 3}
@@ -389,7 +376,7 @@ PrefabInstance:
     - target: {fileID: 3307929473325721524, guid: 46a4e90c6bc3b814da3193d7b20505ed,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.35251346
+      value: -0.3525135
       objectReference: {fileID: 0}
     - target: {fileID: 8787832796778072946, guid: 46a4e90c6bc3b814da3193d7b20505ed,
         type: 3}
@@ -709,23 +696,3 @@ MonoBehaviour:
   camTransform: {fileID: 1503830807}
   Offset: {x: 0.059970856, y: 5.903007, z: -6.4318504}
   SmoothTime: 0.3
---- !u!1 &1852333089 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3307929473325415778, guid: 46a4e90c6bc3b814da3193d7b20505ed,
-    type: 3}
-  m_PrefabInstance: {fileID: 951202435}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1852333100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852333089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2914318a024afb4eb5c5b7dee394f7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rockParticle: {fileID: 150939297637703266, guid: c3c8fbf83fad2a04cac80835c3c9e1eb,
-    type: 3}

@@ -1809,6 +1809,7 @@ GameObject:
   - component: {fileID: 1977973512}
   - component: {fileID: 8787832796778072946}
   - component: {fileID: 1977973527}
+  - component: {fileID: 3975005810630445226}
   - component: {fileID: 1977973520}
   m_Layer: 0
   m_Name: Player_Character_Female
@@ -1914,6 +1915,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &3975005810630445226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3307929473325415778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b54bfb72b384f24e9b024d9c3d7a425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockParticle: {fileID: 150939297637703266, guid: 2ad0ad6f9f6c9ce42a631eef553eb3c4,
+    type: 3}
 --- !u!114 &1977973520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1929,6 +1944,9 @@ MonoBehaviour:
   animator: {fileID: 3307929473315803022}
   speed: 8
   sideSpeed: 4
+  aimLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &3307929473325416150
 GameObject:
   m_ObjectHideFlags: 0
