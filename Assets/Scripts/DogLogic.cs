@@ -28,6 +28,7 @@ public class DogLogic : MonoBehaviour
 
         if (player.transform.position.z - gameObject.transform.position.z > 20)
         {
+            GameObject.Find("spawnPlane").GetComponent<SpawnEntities>().DogSpawned = false;
             Destroy(gameObject);
         }
     }
