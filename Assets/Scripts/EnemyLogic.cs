@@ -28,7 +28,7 @@ public class EnemyLogic : MonoBehaviour
 
     private void FollowPlayer()
     {
-        transform.LookAt(player.transform.position);
+        transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y + 0.3f, player.transform.position.z));
         rb.MovePosition(Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime));
     }
 
