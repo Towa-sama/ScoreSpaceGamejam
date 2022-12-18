@@ -22,7 +22,6 @@ public class Interaction : MonoBehaviour
         else if (collision.gameObject.CompareTag("Enemy"))
         {
             gameObject.GetComponent<PlayerStats>().GetDamage();
-            Destroy(collision.gameObject);
             OnObstacleCollided?.Invoke(this, EventArgs.Empty);
         }
     }
