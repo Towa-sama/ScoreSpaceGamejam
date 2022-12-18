@@ -5,55 +5,41 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 5f;
-    [SerializeField] private float sideSpeed = 7f;
     [SerializeField] private Animator animator;
-    public CharacterController characterController;
-    
+    [SerializeField] private float speed = 8f;
+    [SerializeField] private float sideSpeed = 4f;
+
     private float horizontal;
     private float vertical;
+    
     private Rigidbody rigidBody;
     private float timer = 2f;
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-    }
 
-    private void FixedUpdate()
-    {
-        timer-=Time.deltaTime;
-        if (timer <= 0)
-        {
-            transform.Translate(Vector3.forward * (movementSpeed * Time.deltaTime));
-            animator.SetBool("isRunning", true);
-        }
     }
 
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
-        Vector3 movement = new Vector3(horizontal, 0f, 0f).normalized;
 
-        if (movement.magnitude >= 0.1f)
+        Vector3 movement = new Vector3(horizontal, 0f, vertical);
+        transform.Translate(Vector3.forward * (speed * Time.deltaTime));
+
+        if (movement.magnitude > 0)
         {
-            characterController.Move(movement * (sideSpeed * Time.deltaTime));
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                animator.SetBool("isRight", true);
-            }
-            else if (Input.GetKeyUp(KeyCode.D))
-            {
-                animator.SetBool("isRight", false);
-            }
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                animator.SetBool("isLeft", true);
-            }
-            else if (Input.GetKeyUp(KeyCode.A))
-            {
-                animator.SetBool("isLeft", false);
-            }
+            movement.Normalize();
+            movement *= sideSpeed * Time.deltaTime;
+            transform.Translate(movement, Space.World);
         }
+        
+        float velocityX = Vector3.Dot(movement.normalized, transform.right);
+        
+        animator.SetFloat("xInput", velocityX, 0.1f, Time.deltaTime);
+        animator.SetFloat("zInput", 1, 0.1f, Time.deltaTime);
+
+
     }
 }
