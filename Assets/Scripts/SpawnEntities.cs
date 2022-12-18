@@ -14,16 +14,20 @@ public class SpawnEntities : MonoBehaviour
     private Random _random;
     private float planeSizeX;
     private float planeSizeZ;
+    private GameObject player;
+    [SerializeField] private GameObject dog;
+    private bool dogSpawned = false;
 
 
     void Start()
     {
         Mesh planeMesh = GetComponent<MeshFilter>().mesh;
         Bounds bounds = planeMesh.bounds;
-        _random = new Random(0x6E624EB7u);
+        _random = new Random((uint) DateTime.Now.Millisecond);
         spawnTime = Time.time;
         planeSizeX = bounds.size.x;
         planeSizeZ = bounds.size.z;
+        player = GameObject.FindWithTag("Player");
     }
 
     void FixedUpdate()
@@ -53,6 +57,17 @@ public class SpawnEntities : MonoBehaviour
             GameObject lastEntity = Instantiate(enemies[index],
                 new Vector3(randomPointX, transform.position.y, randomPointZ), Quaternion.identity);
             Destroy(lastEntity, 20f);
+        }
+
+        if (player.GetComponent<PlayerStats>().HasDog == false)
+        {
+            if (_random.NextInt(100) < 10 && !dogSpawned)
+            {
+                (float randomPointX, float randomPointZ) = GetRandomCoords();
+                GameObject dogEntity = Instantiate(dog, new Vector3(randomPointX, transform.position.y, randomPointZ),
+                    Quaternion.identity);
+                dogSpawned = true;
+            }
         }
     }
 

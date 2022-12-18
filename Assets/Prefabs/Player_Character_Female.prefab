@@ -1807,7 +1807,9 @@ GameObject:
   - component: {fileID: 3307929473325681992}
   - component: {fileID: 3307929473315803022}
   - component: {fileID: 1977973512}
-  - component: {fileID: 8787832796778072946}
+  - component: {fileID: 4756754405412468289}
+  - component: {fileID: 1021879535248376265}
+  - component: {fileID: 2199962607270137474}
   - component: {fileID: 1977973527}
   - component: {fileID: 1977973520}
   m_Layer: 0
@@ -1882,7 +1884,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.44855213, y: 1.2778873, z: 0.37095904}
   m_Center: {x: 0.0099077225, y: 0.8610563, z: 0.022574306}
---- !u!114 &8787832796778072946
+--- !u!114 &4756754405412468289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3307929473325415778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2914318a024afb4eb5c5b7dee394f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockParticle: {fileID: 150939297637703266, guid: c3c8fbf83fad2a04cac80835c3c9e1eb,
+    type: 3}
+--- !u!114 &1021879535248376265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1898,6 +1914,19 @@ MonoBehaviour:
     type: 3}
   tilePrefab: {fileID: 8080242662510031872, guid: ab8a426a0ac2d5a47a5a28ebf0a77a0d,
     type: 3}
+--- !u!114 &2199962607270137474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3307929473325415778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f3daf3dfb798554587fdf1624c431e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdoll: {fileID: 214764918769921526, guid: 10d4059ab97f8d84288df33c19aa4afe, type: 3}
 --- !u!54 &1977973527
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1929,6 +1958,9 @@ MonoBehaviour:
   animator: {fileID: 3307929473315803022}
   speed: 8
   sideSpeed: 4
+  aimLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &3307929473325416150
 GameObject:
   m_ObjectHideFlags: 0

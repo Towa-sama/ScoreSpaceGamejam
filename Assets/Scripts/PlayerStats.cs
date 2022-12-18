@@ -7,16 +7,24 @@ public class PlayerStats : MonoBehaviour
     private static int health = 3;
 
     [SerializeField] private GameObject ragdoll;
-    
+
+    private bool hasDog = false;
+
+    public bool HasDog
+    {
+        get => hasDog;
+        set => hasDog = value;
+    }
+
 
     void Update()
     {
-        if (health <= 0)
+        /*if (health <= 0)
         {
             var rg = Instantiate(ragdoll, gameObject.transform.position, Quaternion.identity);
             ApplyExplosionToRagdoll(rg.transform, 900f, transform.position - new Vector3(0f, 0f, 5f), 10f);
             Destroy(gameObject);
-        }
+        }*/
     }
 
     public void GetDamage()
