@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     
     private Rigidbody rigidBody;
     private float timer = 3f;
+    
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();

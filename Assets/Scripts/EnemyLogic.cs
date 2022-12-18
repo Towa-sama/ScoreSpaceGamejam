@@ -7,12 +7,15 @@ public class EnemyLogic : MonoBehaviour
 {
     private GameObject player;
     private Rigidbody rb;
+    private Animator animator;
 
-    private float speed = 2f;
+    private float speed = 6f;
+    private float rotationSpeed = 4f;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
         rb = gameObject.GetComponent<Rigidbody>();
     }
@@ -23,13 +26,16 @@ public class EnemyLogic : MonoBehaviour
         if (Vector3.Distance(player.transform.position, gameObject.transform.position) < 10)
         {
             FollowPlayer();
+            animator.SetBool("isPlayerVisible", true);
         }
     }
 
     private void FollowPlayer()
     {
-        transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y + 0.3f, player.transform.position.z));
+        Quaternion targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         rb.MovePosition(Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime));
+        
     }
 
     private void OnCollisionEnter(Collision collision)

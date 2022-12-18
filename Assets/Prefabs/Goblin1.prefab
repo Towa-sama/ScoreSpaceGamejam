@@ -59,6 +59,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9585324, guid: 70ad07d06832dba42a3bb244ab822fd1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ab47e25d3622352489370744c5c36b00, type: 2}
+    - target: {fileID: 9585324, guid: 70ad07d06832dba42a3bb244ab822fd1, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70ad07d06832dba42a3bb244ab822fd1, type: 3}
 --- !u!1 &8293675014864467487 stripped
@@ -97,7 +105,7 @@ CapsuleCollider:
   m_Height: 2.12
   m_Direction: 1
   m_Center: {x: 0, y: 1.03, z: 0}
---- !u!114 &612888279890835716
+--- !u!114 &1806092112377575768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,6 +114,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8293675014864467487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0771bc290c814778b2bb082a518606d3, type: 3}
+  m_Script: {fileID: 11500000, guid: f2f2938825c9b454fb8f5ba4e2067268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
