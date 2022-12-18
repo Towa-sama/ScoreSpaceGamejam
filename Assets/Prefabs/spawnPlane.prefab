@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6161681979658282605}
   - component: {fileID: 5459420333390991732}
   - component: {fileID: 8294157556908409370}
-  - component: {fileID: 4592828359079626266}
-  - component: {fileID: 5323128695776106595}
+  - component: {fileID: 6965384}
+  - component: {fileID: 6965385}
   m_Layer: 0
   m_Name: spawnPlane
   m_TagString: Untagged
@@ -100,7 +100,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &4592828359079626266
+--- !u!114 &6965384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,10 +109,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 5558751271647647663}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 941fe32e81e63d1429afa7fb615c1475, type: 3}
+  m_Script: {fileID: 11500000, guid: bdae8db9acd7c6842ac6edf985206632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5323128695776106595
+  rocks:
+  - {fileID: 8865046350605725926, guid: b229748ac135cb54984eff36d89edba0, type: 3}
+  - {fileID: 4849453685301788498, guid: b5eb10bf9c720be49afbf687ba41e2d3, type: 3}
+  - {fileID: 3921686304484942644, guid: cb2a05871270fe64ca7d08842a67c30d, type: 3}
+  - {fileID: 1784583802874420123, guid: aacd7ea9ca00b414487f4400ad800769, type: 3}
+  - {fileID: 1350900527785198152, guid: be3302eff89a2134aa10de1894357ce6, type: 3}
+  enemies:
+  - {fileID: 1854058055771504529, guid: 082cfd6266f35954c93099698d2e1445, type: 3}
+  - {fileID: 8293675014864467487, guid: 804dab4651555244187bdc5e980c1b9e, type: 3}
+  - {fileID: 8810570148311381764, guid: 0009f8926bd321d4d8d4dc16d5d0f5e1, type: 3}
+  - {fileID: 2563947700267836597, guid: 00268d92e10061c4fb0c914377fd6e87, type: 3}
+  - {fileID: 301829390358276344, guid: 312664ce89ff5f4409913adeae5073d7, type: 3}
+  - {fileID: 7622210500879788035, guid: 538ac363f4969ce48bc6259f0969b2f6, type: 3}
+  - {fileID: 8954745783743598393, guid: 979335bacb7d84b4b97c968f9e37b7b4, type: 3}
+  - {fileID: 3408784856417000706, guid: 7ed34abbb515d9442b202a400422b7d2, type: 3}
+--- !u!114 &6965385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,8 +136,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5558751271647647663}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 235789efa291d314aa88baedbf8e3cba, type: 3}
+  m_Script: {fileID: 11500000, guid: 03bf2b6b454d55f46bbe185e8d689c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocks: []
-  enemies: []
