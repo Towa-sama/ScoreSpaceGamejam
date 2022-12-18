@@ -18,6 +18,12 @@ public class SpawnEntities : MonoBehaviour
     [SerializeField] private GameObject dog;
     private bool dogSpawned = false;
 
+    public bool DogSpawned
+    {
+        get => dogSpawned;
+        set => dogSpawned = value;
+    }
+
 
     void Start()
     {
