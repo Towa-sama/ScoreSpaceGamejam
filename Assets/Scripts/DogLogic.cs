@@ -40,6 +40,7 @@ public class DogLogic : MonoBehaviour
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
             isPicked = true;
             anim.SetBool("isPicked", true);
+            collision.gameObject.GetComponent<PlayerStats>().HasDog = true;
         }
     }
 }
