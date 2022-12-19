@@ -6,13 +6,20 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    private static int health = 1;
-    private int shieldHealth = 2;
+    private static int health = 1000000;
 
     [SerializeField] private GameObject ragdoll;
     [SerializeField] private TextMeshProUGUI shieldCount;
     [SerializeField] private GameObject shield;
     [SerializeField] private GameObject shield2;
+    private bool hasDog;
+    [SerializeField] private GameObject deathParticle;
+
+    public bool HasDog
+    {
+        get => hasDog;
+        set => hasDog = value;
+    }
 
     private void Start()
     {
@@ -24,6 +31,7 @@ public class PlayerStats : MonoBehaviour
         if (health <= 0)
         {
             var rg = Instantiate(ragdoll, gameObject.transform.position, Quaternion.identity);
+            Destroy(GameObject.Find("spawnPlane"));
             ApplyExplosionToRagdoll(rg.transform, 900f, transform.position - new Vector3(0f, 0f, 5f), 10f);
             Destroy(gameObject);
         }
@@ -31,29 +39,39 @@ public class PlayerStats : MonoBehaviour
 
     public void GetDamage()
     {
-        if (shieldHealth > 0)
+        if (hasDog)
         {
-            if (shieldHealth == 2)
-            {
-                shield.SetActive(false);
-            }
-
-            if (shieldHealth == 1)
-            {
-                shield2.SetActive(false);
-            }
-            shieldHealth -= 1;
-            shieldCount.text = shieldHealth + "/2";
+            var dog = GameObject.FindWithTag("Dog");
+            Destroy(dog);
+            hasDog = false;
+            var spawnPlane = GameObject.Find("spawnPlane");
+            spawnPlane.GetComponent<SpawnEntities>().DogSpawned = false;
+            var particles = Instantiate(deathParticle,
+                transform.parent.position -
+                new Vector3(transform.position.x, transform.position.y, transform.position.z - 2f),
+                Quaternion.identity);
+            Destroy(particles, 3f);
         }
         else
         {
             health -= 1;
+            if (health == 2)
+            {
+                shield.SetActive(false);
+            }
+
+            if (health == 1)
+            {
+                shield2.SetActive(false);
+            }
+
+            shieldCount.text = (health - 1) + "/2";
+            Debug.Log("current health: " + health);
         }
-        Debug.Log("current shield health: "+ shieldHealth);
-        Debug.Log("current health: "+ health);
     }
-    
-    private void ApplyExplosionToRagdoll(Transform root, float explosionForce, Vector3 explosionPosition, float explosionRange)
+
+    private void ApplyExplosionToRagdoll(Transform root, float explosionForce, Vector3 explosionPosition,
+        float explosionRange)
     {
         foreach (Transform child in root)
         {
@@ -61,7 +79,7 @@ public class PlayerStats : MonoBehaviour
             {
                 childRigidBody.AddExplosionForce(explosionForce, explosionPosition, explosionRange);
             }
-            
+
             ApplyExplosionToRagdoll(child, explosionForce, explosionPosition, explosionRange);
         }
     }
