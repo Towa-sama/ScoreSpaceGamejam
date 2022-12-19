@@ -58,7 +58,6 @@ public class PlayerController : MonoBehaviour
         while (speed < 8f)
         {
             speed++;
-            Debug.Log(speed);
             yield return new WaitForSeconds(0.2f); 
         }
     }
