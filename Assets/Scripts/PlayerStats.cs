@@ -15,6 +15,16 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private GameObject shield;
     [SerializeField] private GameObject shield2;
     [SerializeField] private GameObject deathParticle;
+    private TMP_Text scoreText;
+    private static string playerName = "Unknown";
+    private int score;
+    private Leaderboard _leaderboard;
+
+    public static string PlayerName
+    {
+        get => playerName;
+        set => playerName = value;
+    }
 
     private void Awake()
     {
@@ -23,9 +33,11 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
+        _leaderboard = new Leaderboard();
         health = 3;
         shieldCount.text = "2/2";
         gameOver.gameObject.SetActive(false);
+        scoreText = GameObject.Find("Score").GetComponent<TMP_Text>();
     }
 
     public bool HasDog
@@ -36,11 +48,14 @@ public class PlayerStats : MonoBehaviour
     
     void Update()
     {
+        score = (int) transform.position.z;
+        scoreText.SetText($"Score: {score} m");
         if (health <= 0)
         {
             var rg = Instantiate(ragdoll, gameObject.transform.position, Quaternion.identity);
             Destroy(GameObject.Find("spawnPlane"));
             ApplyExplosionToRagdoll(rg.transform, 900f, transform.position - new Vector3(0f, 0f, 5f), 10f);
+            StartCoroutine(_leaderboard.SubmitScoreRoutine(score));
             Destroy(gameObject);
             gameOver.TurnDeathScreen();
         }
@@ -55,11 +70,6 @@ public class PlayerStats : MonoBehaviour
             hasDog = false;
             var spawnPlane = GameObject.Find("spawnPlane");
             spawnPlane.GetComponent<SpawnEntities>().DogSpawned = false;
-            var particles = Instantiate(deathParticle,
-                transform.parent.position -
-                new Vector3(transform.position.x, transform.position.y, transform.position.z - 2f),
-                Quaternion.identity);
-            Destroy(particles, 3f);
         }
         else
         {
