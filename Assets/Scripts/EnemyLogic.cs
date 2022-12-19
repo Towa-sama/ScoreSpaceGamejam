@@ -46,11 +46,11 @@ public class EnemyLogic : MonoBehaviour
     {
         if (collision.transform.CompareTag("Rock") || collision.transform.CompareTag("Player"))
         {
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
             isDead = true;
             animator.enabled = false;
             root.SetActive(true);
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            gameObject.GetComponent<CapsuleCollider>().enabled = false;
             ApplyExplosionToRagdoll(gameObject.transform, 5000f, transform.position - new Vector3(0f, 0f, 5f), 10);
             Destroy(gameObject, 5f);
         }
