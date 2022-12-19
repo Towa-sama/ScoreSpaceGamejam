@@ -6,26 +6,34 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    private static int health = 1000000;
-
+    private static int health = 3;
+    private bool hasDog = false;
+    [SerializeField] private GameOverSequence gameOver;
+    
     [SerializeField] private GameObject ragdoll;
     [SerializeField] private TextMeshProUGUI shieldCount;
     [SerializeField] private GameObject shield;
     [SerializeField] private GameObject shield2;
-    private bool hasDog;
     [SerializeField] private GameObject deathParticle;
+
+    private void Awake()
+    {
+        gameOver.TurnDeathScreenOff();
+    }
+
+    private void Start()
+    {
+        health = 3;
+        shieldCount.text = "2/2";
+        gameOver.gameObject.SetActive(false);
+    }
 
     public bool HasDog
     {
         get => hasDog;
         set => hasDog = value;
     }
-
-    private void Start()
-    {
-        shieldCount.text = "2/2";
-    }
-
+    
     void Update()
     {
         if (health <= 0)
@@ -34,6 +42,7 @@ public class PlayerStats : MonoBehaviour
             Destroy(GameObject.Find("spawnPlane"));
             ApplyExplosionToRagdoll(rg.transform, 900f, transform.position - new Vector3(0f, 0f, 5f), 10f);
             Destroy(gameObject);
+            gameOver.TurnDeathScreen();
         }
     }
 
