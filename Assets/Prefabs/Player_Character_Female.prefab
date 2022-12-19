@@ -1917,6 +1917,8 @@ MonoBehaviour:
   shieldCount: {fileID: 0}
   shield: {fileID: 375092975}
   shield2: {fileID: 521805613}
+  deathParticle: {fileID: 150939297637703266, guid: 81c5339b8a5d10a4ea8c97dee01075d8,
+    type: 3}
 --- !u!54 &1977973527
 Rigidbody:
   m_ObjectHideFlags: 0
