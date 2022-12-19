@@ -67,7 +67,7 @@ public class SpawnEntities : MonoBehaviour
 
         if (player.GetComponent<PlayerStats>().HasDog == false)
         {
-            if (_random.NextInt(100) < 10 && !dogSpawned)
+            if (_random.NextInt(100) < 50 && !dogSpawned)
             {
                 (float randomPointX, float randomPointZ) = GetRandomCoords();
                 GameObject dogEntity = Instantiate(dog, new Vector3(randomPointX, transform.position.y, randomPointZ),
